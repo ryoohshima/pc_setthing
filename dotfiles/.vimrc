@@ -24,8 +24,8 @@ syntax enable
 set autoindent                 " ENTER時に自動でインデント
 set smartindent                " インデントを空気読んでやってくれる
 set expandtab                  " タブ文字の代わりに同じ幅の空白文字を入れる
-set tabstop=4                  " タブ文字のインデント幅
-set shiftwidth=4               " 「＞＞」、「＜＜」操作のシフト幅
+set tabstop=2                  " タブ文字のインデント幅
+set shiftwidth=2               " 「＞＞」、「＜＜」操作のシフト幅
 "------------------------------------------------------------------------------
 "全角、タブの判別
 "タブ、空白、改行の可視化
@@ -70,8 +70,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'  "左にディレクトリ一覧を表示
 NeoBundle 'Townk/vim-autoclose'  "閉じカッコを補完
 NeoBundle 'Yggdroot/indentLine'  "インデントの可視化
-
-
+NeoBundle 'nikvdp/ejs-syntax'    "ejsにシンタックスカラー設定
 
 "-------------------
 call neobundle#end()

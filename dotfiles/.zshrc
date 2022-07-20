@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/ryoohshima/.oh-my-zsh"
 
@@ -154,15 +153,15 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 # パス
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-
 export PATH="/Users/ryoohshima/.nodebrew/node/12.13.1/bin:$PATH"
-export PATH="/Users/ryoohshima/.nodebrew/node/12.13.1/bin:$PATH"
-
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
-eval "$(rbenv init -)"
-
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/opt/themekit/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
 
 path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
 export PATH=$PATH:/Users/ryoohshima/.nodebrew/current/bin
@@ -170,14 +169,47 @@ export PATH=$PATH:/Users/ryoohshima/.nodebrew/current/bin
 #------------------------------------------------------------------------------------------------------
 
 # エイリアス
-alias sshpex='ssh -i /Users/ryoohshima/gitfiles/pepy-web/key/pepy_id_rsa -p 10022 pepy@sv8713.xserver.jp'
-alias sshba1='ssh -i ~/.ssh/id_rsa ryoohshima@ec2-54-199-221-32.ap-northeast-1.compute.amazonaws.com'
-alias sshba2='ssh -i ~/.ssh/id_rsa ryoohshima@ec2-13-115-84-232.ap-northeast-1.compute.amazonaws.com'
 
+## change directory
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+## git
+alias ga='git add'
+alias gcom='git commit'
+alias gpl='git pull'
+alias gpsh='git push'
+alias gch='git checkout'
+alias gf='git fetch'
+alias gb='git branch'
+alias gs='git status'
+alias gst='git stash'
+alias gsta='git stash apply stash@{0}'
+alias gr='git reset'
+
+## move git file
+alias hts='~/Local\ Sites/htsdev/app/public/wp-content/themes/HighTechnologySolutions'
+alias rosca='~/Local\ Sites/roscadev/app/public/wp-content/themes/rosca-2021/'
+alias roscaf='~/../../Applications/MAMP/htdocs/rosca/rosca-freelance'
+alias roscae='~/../../Applications/MAMP/htdocs/rosca/rosca-engineer'
+alias suguseru='~/work/hts/suguseru'
+alias damd='~/work/applab/damd-cart'
+alias fj='~/work/private/Fantasy-JLeague'
+alias tz='~/work/private/tenmonzukan'
+alias propo='~/work/propo'
+alias submarine='~/Local\ Sites/submarinedev/app/public/wp-content/themes'
+alias dik='~/work/dik'
+alias ecd='~/Local\ Sites/excelcampdev/app/public/wp-content/themes/excelcamp_source_stg'
+alias ecp='~/Local\ Sites/excelcampprod/app/public/wp-content/themes/excelcamp_source_prod'
+
+## short cut key
+alias dockerStop='docker stop $(docker ps -a -q)'
+alias grep='(){grep -rI $1 $2 --exclude-dir={node_modules,dist,SMS,.vim,.git,.next,image,images,img} --exclude={package-lock.json,jquery-ui.min.js,theme.liquid,gift_card.liquid,password.liquid,ie11CustomProperties.min.js,test.js}}'
+alias sed='(){grep -rl "$1" ./* | xargs sed -i "" -e "s/$1/$2/g"}' # e.g. -> grep -rl 'searvh' ./* | xargs sed -i "" -e 's/searvh/search/g'
+alias condaa='conda activate'
+alias condad='conda deactivate'
 
 # ------------------------------------------------------------------------------------------------------
 
@@ -188,6 +220,17 @@ alias screen='WEEK=`LANG=C date "+%a"` screen'
 
 # グロブ展開阻止
 setopt nonomatch
+
+# ------------------------------------------------------------------------------------------------------
+
+# タブ間履歴共有
+function share_history {
+ history -a
+ history -c
+ history -r
+}
+
+# ------------------------------------------------------------------------------------------------------
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
