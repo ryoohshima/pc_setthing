@@ -18,6 +18,7 @@ set showmode                   " INSERTなどのステータスを表示する
 set number                     " 行番号の表示
 set notitle                    " タイトルバーに編集中のファイル名などを表示
 set ruler                      " カーソル位置情報を表示
+set laststatus=2               " ファイル名を表示
 syntax enable
 "------------------------------------------------------------------------------
 "インデント系
@@ -67,10 +68,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "-------------------
 " ここに追加したいVimプラグインを記述する
 
-NeoBundle 'scrooloose/nerdtree'  "左にディレクトリ一覧を表示
-NeoBundle 'Townk/vim-autoclose'  "閉じカッコを補完
-NeoBundle 'Yggdroot/indentLine'  "インデントの可視化
-NeoBundle 'nikvdp/ejs-syntax'    "ejsにシンタックスカラー設定
+NeoBundle 'scrooloose/nerdtree'           "左にディレクトリ一覧を表示
+NeoBundle 'Townk/vim-autoclose'           "閉じカッコを補完
+NeoBundle 'Yggdroot/indentLine'           "インデントの可視化
+NeoBundle 'nikvdp/ejs-syntax'             "ejsにシンタックスカラー設定
 
 "-------------------
 call neobundle#end()
